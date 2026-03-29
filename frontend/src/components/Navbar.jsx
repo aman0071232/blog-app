@@ -17,7 +17,7 @@ function Navbar() {
     e.preventDefault();
     try {
       const { data } = await axios.get(
-        `${BACKEND_URL}/api/users/logout`,
+        "http://localhost:4001/api/users/logout",
         { withCredentials: true }
       );
       localStorage.removeItem("jwt");
