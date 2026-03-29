@@ -5,6 +5,7 @@ import { IoCloseSharp } from "react-icons/io5";
 import { useAuth } from "../context/AuthProvider";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { BACKEND_URL } from "../utlis";
 
 function Navbar() {
   const [show, setShow] = useState(false);
@@ -16,7 +17,7 @@ function Navbar() {
     e.preventDefault();
     try {
       const { data } = await axios.get(
-        "http://localhost:4001/api/users/logout",
+        `${BACKEND_URL}/api/users/logout`,
         { withCredentials: true }
       );
       localStorage.removeItem("jwt");

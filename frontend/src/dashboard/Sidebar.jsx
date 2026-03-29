@@ -12,7 +12,7 @@ import {
   FaSignOutAlt,
 } from "react-icons/fa";
 import toast from "react-hot-toast";
-
+import { BACKEND_URL } from "../utlis";
 function Sidebar({ setComponent }) {
   const { profile, setIsAuthenticated } = useAuth();
   const navigateTo = useNavigate();
@@ -22,7 +22,7 @@ function Sidebar({ setComponent }) {
     e.preventDefault();
     try {
       const { data } = await axios.get(
-        "http://localhost:4001/api/users/logout",
+        `${BACKEND_URL}/api/users/logout`,
         { withCredentials: true }
       );
       toast.success(data.message);

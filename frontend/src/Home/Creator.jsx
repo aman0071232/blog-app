@@ -1,13 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-
+import { BACKEND_URL } from "../utlis";
 function Creator() {
   const [admin, setAdmin] = useState([]);
   console.log(admin);
   useEffect(() => {
     const fetchAdmins = async () => {
       const { data } = await axios.get(
-        "http://localhost:4001/api/users/admins",
+        `${BACKEND_URL}/api/users/admins`,
         {
           withCredentials: true,
         }
